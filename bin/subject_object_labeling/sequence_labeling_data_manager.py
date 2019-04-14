@@ -5,8 +5,8 @@ import json
 
 class Model_data_preparation(object):
 
-    def __init__(self, DATA_INPUT_DIR="input", DATA_OUTPUT_DIR="sequence_labeling_data",
-                 vocab_file_path="vocab.txt", do_lower_case=True):
+    def __init__(self, DATA_INPUT_DIR="./input", DATA_OUTPUT_DIR="./sequence_labeling_data",
+                 vocab_file_path="./chinese_L-12_H-768_A-12/vocab.txt", do_lower_case=True):
         # BERT 自带WordPiece分词工具，对于中文都是分成单字
         self.bert_tokenizer = tokenization.FullTokenizer(vocab_file=self.get_vocab_file_path(vocab_file_path),
                                                          do_lower_case=do_lower_case)  # 初始化 bert_token 工具
@@ -17,12 +17,12 @@ class Model_data_preparation(object):
 
     def get_data_input_dir(self, DATA_INPUT_DIR):
         DATA_INPUT_DIR = os.path.join(
-            os.path.abspath(os.path.join(os.path.dirname(__file__), "../input")), DATA_INPUT_DIR)
+            os.path.abspath(os.path.join(os.path.dirname(__file__), "")), DATA_INPUT_DIR)
         return DATA_INPUT_DIR
 
     def get_vocab_file_path(self, vocab_file_path):
         vocab_file_path = os.path.join(
-            os.path.abspath(os.path.join(os.path.dirname(__file__), "..//chinese_L-12_H-768_A-12")), vocab_file_path)
+            os.path.abspath(os.path.join(os.path.dirname(__file__), "")), vocab_file_path)
         return vocab_file_path
 
     #序列标注对齐：由原始数据文件生成标注好的序列文件
@@ -141,8 +141,8 @@ class Model_data_preparation(object):
             self.bert_tokener_error_log_f.close()
 
 if __name__=="__main__":
-    DATA_INPUT_DIR = "input"
-    DATA_OUTPUT_DIR = "sequence_labeling_data"
+    DATA_INPUT_DIR = "./input/kg-baidu"
+    DATA_OUTPUT_DIR = "./sequence_labeling_data"
     model_data = Model_data_preparation(DATA_INPUT_DIR=DATA_INPUT_DIR, DATA_OUTPUT_DIR=DATA_OUTPUT_DIR)
     model_data.separate_raw_data_and_token_labeling()
 
