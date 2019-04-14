@@ -13,7 +13,7 @@ def unzip_and_move_files():
 
 class Model_data_preparation(object):
 
-    def __init__(self, RAW_DATA_INPUT_DIR="./input/kg-baidu", DATA_OUTPUT_DIR="./classfication_data",
+    def __init__(self, RAW_DATA_INPUT_DIR="./input/Mydata2", DATA_OUTPUT_DIR="./classfication_data",
                  vocab_file_path="./chinese_L-12_H-768_A-12/vocab.txt", do_lower_case=True, Competition_Mode=False, Valid_Model=False):
         '''
         :param RAW_DATA_INPUT_DIR: 输入文件目录，一般是原始数据目录
@@ -115,7 +115,7 @@ class Model_data_preparation(object):
             token_in_not_UNK_f.close()
 
 if __name__ == "__main__":
-    RAW_DATA_DIR = "./input/kg-baidu"
+    RAW_DATA_DIR = "./input/Mydata2"
     DATA_OUTPUT_DIR = "./classification_data"
     Competition_Mode = True
     Valid_Mode = False
