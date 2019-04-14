@@ -5,7 +5,7 @@ import json
 
 class Model_data_preparation(object):
 
-    def __init__(self, DATA_INPUT_DIR="./input", DATA_OUTPUT_DIR="./sequence_labeling_data",
+    def __init__(self, DATA_INPUT_DIR="./input/Mydata2", DATA_OUTPUT_DIR="./sequence_labeling_data",
                  vocab_file_path="./chinese_L-12_H-768_A-12/vocab.txt", do_lower_case=True):
         # BERT 自带WordPiece分词工具，对于中文都是分成单字
         self.bert_tokenizer = tokenization.FullTokenizer(vocab_file=self.get_vocab_file_path(vocab_file_path),
@@ -141,7 +141,7 @@ class Model_data_preparation(object):
             self.bert_tokener_error_log_f.close()
 
 if __name__=="__main__":
-    DATA_INPUT_DIR = "./input/kg-baidu"
+    DATA_INPUT_DIR = "./input/Mydata2"
     DATA_OUTPUT_DIR = "./sequence_labeling_data"
     model_data = Model_data_preparation(DATA_INPUT_DIR=DATA_INPUT_DIR, DATA_OUTPUT_DIR=DATA_OUTPUT_DIR)
     model_data.separate_raw_data_and_token_labeling()
