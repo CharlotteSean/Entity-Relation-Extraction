@@ -13,8 +13,8 @@ def unzip_and_move_files():
 
 class Model_data_preparation(object):
 
-    def __init__(self, RAW_DATA_INPUT_DIR="input", DATA_OUTPUT_DIR="classfication_data",
-                 vocab_file_path="vocab.txt", do_lower_case=True, Competition_Mode=False, Valid_Model=False):
+    def __init__(self, RAW_DATA_INPUT_DIR="./input/kg-baidu", DATA_OUTPUT_DIR="./classfication_data",
+                 vocab_file_path="./chinese_L-12_H-768_A-12/vocab.txt", do_lower_case=True, Competition_Mode=False, Valid_Model=False):
         '''
         :param RAW_DATA_INPUT_DIR: 输入文件目录，一般是原始数据目录
         :param DATA_OUTPUT_DIR: 输出文件目录，一般是分类任务数据文件夹
@@ -38,13 +38,13 @@ class Model_data_preparation(object):
     # 获取输入文件路径
     def get_data_input_dir(self, DATA_INPUT_DIR):
         DATA_INPUT_DIR = os.path.join(
-            os.path.abspath(os.path.join(os.path.dirname(__file__), "../input/")), DATA_INPUT_DIR)
+            os.path.abspath(os.path.join(os.path.dirname(__file__), "")), DATA_INPUT_DIR)
         return DATA_INPUT_DIR
 
     # 获取词汇表路径
     def get_vocab_file_path(self, vocab_file_path):
         vocab_file_path = os.path.join(
-            os.path.abspath(os.path.join(os.path.dirname(__file__), "../chinese_L-12_H-768_A-12/")), vocab_file_path)
+            os.path.abspath(os.path.join(os.path.dirname(__file__), "")), vocab_file_path)
         return vocab_file_path
 
     # 处理原始数据
@@ -115,8 +115,8 @@ class Model_data_preparation(object):
             token_in_not_UNK_f.close()
 
 if __name__ == "__main__":
-    RAW_DATA_DIR = "kg-baidu"
-    DATA_OUTPUT_DIR = "classification_data"
+    RAW_DATA_DIR = "./input/kg-baidu"
+    DATA_OUTPUT_DIR = "./classification_data"
     Competition_Mode = True
     Valid_Mode = False
     model_data = Model_data_preparation(
