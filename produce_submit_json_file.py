@@ -13,7 +13,7 @@ def get_latest_model_predict_data_dir(new_epochs_ckpt_dir=None):
     if new_epochs_ckpt_dir is None:
         # 获取分类预测输出文件路径
         input_new_epochs = os.path.join(
-                os.path.abspath(os.path.join(os.path.dirname(__file__), "output")), "sequnce_infer_out")
+                os.path.abspath(os.path.join(os.path.dirname(__file__), "./output")), "sequnce_infer_out")
         # 获取最新周期文件路径
         new_ckpt_dir = new_report(input_new_epochs)
         input_new_epochs_ckpt = os.path.join(input_new_epochs, new_ckpt_dir)
@@ -316,10 +316,10 @@ class Sorted_relation_and_entity_list_Management(File_Management):
 
 
 if __name__=='__main__':
-    TEST_DATA_DIR = "bin/subject_object_labeling/sequence_labeling_data/test"
+    TEST_DATA_DIR = "./sequence_labeling_data/test"
     # MODEL_OUTPUT_DIR = "output/sequnce_infer_out/epochs9/ckpt20000"
     MODEL_OUTPUT_DIR = None
-    OUT_RESULTS_DIR = "output/final_text_spo_list_result"
+    OUT_RESULTS_DIR = "./output/final_text_spo_list_result"
     Competition_Mode = True
     spo_list_manager = Sorted_relation_and_entity_list_Management(TEST_DATA_DIR, MODEL_OUTPUT_DIR, Competition_Mode=Competition_Mode)
     spo_list_manager.produce_output_file(OUT_RESULTS_DIR=OUT_RESULTS_DIR, keep_empty_spo_list=True)
