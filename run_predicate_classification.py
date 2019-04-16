@@ -24,10 +24,10 @@ import os
 import sys
 import tensorflow as tf
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../bert")))
-from bert import modeling
-from bert import optimization
-from bert import tokenization
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../bert")))
+# from bert import modeling
+# from bert import optimization
+# from bert import tokenization
 
 flags = tf.flags
 
